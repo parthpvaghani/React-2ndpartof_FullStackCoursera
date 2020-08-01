@@ -3,18 +3,18 @@ import './App.css';
 import Main from './components/MainComponent';
 
 
-class App extends Component{
+class App extends Component {
 
-  
 
-  render(){
+
+  render() {
     return (
       <div>
-            <Main /> 
+        <Main />
       </div>
     );
   }
-  
+
 }
 
 export default App;
