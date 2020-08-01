@@ -1,45 +1,27 @@
-import React,{ Component } from 'react';
-import { Card, CardImg, CardImgOverlay,CardTitle } from 'reactstrap';
-import DishDetail from './DishdetailComponent';
+import React, { Component } from 'react';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import '../App.css';
+class Menu extends Component {
+    render() {
 
-class Menu extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-           //this part removed because we are lifting up our state, from child(menu component) to parent(app component) 
-           //so other child component can use it in future
-
-           selectedDish: null
-        };
-    };
-
-    onDishSelect(dish){
-        this.setState({ selectedDish: dish});
-    };
-
-    
-
-    render(){
-
-        const menu = this.props.dishes.map((dish)=>{
-            return(
+        const menu = this.props.dishes.map((dish) => {
+            return (
                 <div className="col-12 col-md-5 m-1">
-                <Card key={dish.id} onClick={()=>{this.onDishSelect(dish)}}>
-                    <CardImg width="100%" src={dish.image} alt={dish.name}/>
-                    <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
-                    </CardImgOverlay>
-                </Card>
+                    <Card key={dish.id} onClick={() => { this.props.onClick(dish.id) }}>
+                        <CardImg width="100%" src={dish.image} alt={dish.name} />
+                        <CardImgOverlay>
+                            <CardTitle>{dish.name}</CardTitle>
+                        </CardImgOverlay>
+                    </Card>
                 </div>
             )
         })
 
-        return(
+        return (
             <div className="container">
                 <div className="row">
-                        {menu}
+                    {menu}
                 </div>
-                <DishDetail dish={this.state.selectedDish}/>
             </div>
         );
     };
