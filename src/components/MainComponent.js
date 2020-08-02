@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import Menu from './MenuComponent';
 import { DISHES } from '../shared/dishes';
 import DishDetail from './DishdetailComponent'
-
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
+import Home from './HomeComponent';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import '../App.css';
 
 
 class Main extends Component {
@@ -11,27 +15,42 @@ class Main extends Component {
         super(props);
         this.state = {
             dishes: DISHES,
-            selectedDish: null
+            // selectedDish: null
         }
     }
 
 
-    onDishSelect(dishId) {
-        this.setState({ selectedDish: dishId });
-    };
+    // onDishSelect(dishId) {
+    //     this.setState({ selectedDish: dishId });
+    // };
 
 
     render() {
+
+        const HomePage = () => {
+            return (
+                <Home
+                />
+            );
+        }
         return (
 
             <div>
-               
-                <Menu dishes={this.state.dishes} onClick={(dishId) => { this.onDishSelect(dishId) }} />
+                <Header />
+                {/* <Menu dishes={this.state.dishes} onClick={(dishId) => { this.onDishSelect(dishId) }} />
                 <div className="container">
                     <DishDetail dish={this.state.dishes.filter((dish) => {
                         return dish.id === this.state.selectedDish;
                     })[0]} />
-                </div>
+                </div> */}
+                <Switch>
+                    <Route path='/home' component={HomePage} />
+                    {/* onclick is not passed in menu component we have different way to implement it we will see in later exce. */}
+                    <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />
+                    <Redirect to="/home" />
+                </Switch>
+                <Footer />
+
 
             </div>
 

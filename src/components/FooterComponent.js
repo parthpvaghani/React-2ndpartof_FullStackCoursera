@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 function Footer(props) {
     return (
         <div className="footer">
@@ -9,10 +9,10 @@ function Footer(props) {
                     <div className="col-4 col-sm-4 ">
                         <h5>Links</h5>
                         <ul className="list-unstyled">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="/aboutus.html">About</a></li>
-                            <li><a href="#">Menu</a></li>
-                            <li><a href="contactus.html">Contact</a></li>
+                        <li><Link to='/home'>Home</Link></li>
+                        <li><Link to='/aboutus'>About Us</Link></li>
+                        <li><Link to='/menu'>Menu</Link></li>
+                        <li><Link to='/contactus'>Contact Us</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-4">
