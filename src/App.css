@@ -16,10 +16,9 @@ body {
     min-height: 400px; }
   
   .footer {
-    background-color: #000000;
+    background-color: #e6a7a7;
     margin: 0px auto;
-    padding: 20px 0px;
-  color: #f78181; }
+    padding: 20px 0px; }
   
   .row-header:hover {
     color: white; }
