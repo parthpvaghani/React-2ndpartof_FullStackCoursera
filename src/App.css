@@ -16,16 +16,17 @@ body {
     min-height: 400px; }
   
   .footer {
-    background-color: #e6a7a7;
+    background-color: #000000;
     margin: 0px auto;
-    padding: 20px 0px; }
+    padding: 20px 0px;
+  color: #f78181; }
   
   .row-header:hover {
     color: white; }
   
-  .row-content:hover {
+  /* .row-content:hover {
     color: crimson; }
-  
+   */
   .jumbotron {
     margin: 0px auto;
     padding: 70px 30px;
