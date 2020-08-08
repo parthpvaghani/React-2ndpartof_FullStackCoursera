@@ -1,5 +1,8 @@
 body {
-    padding-top: 50px; }
+  
+    padding-top: 50px; 
+    padding-right: 0px !important;
+  }
   
   html {
     scroll-behavior: smooth; }
