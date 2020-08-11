@@ -1,20 +1,20 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrumb } from 'reactstrap';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 function RenderDish({ dish }) {
     if (dish != null) {
         return (
             <React.Fragment>
-               
-                    <Card >
-                        <CardImg top src={dish.image} alt={dish.name}/>
-                        <CardBody>
-                            <CardTitle>{dish.name}</CardTitle>
-                            <CardText>{dish.description}</CardText>
-                        </CardBody>
-                    </Card>
-              
+
+                <Card >
+                    <CardImg top src={dish.image} alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+
             </React.Fragment>
         )
     }
@@ -25,7 +25,7 @@ function RenderDish({ dish }) {
 
 }
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, dishId }) {
 
     if (comments != null) {
         const comment = comments.map((comment) => {
@@ -37,15 +37,15 @@ function RenderComments({ comments }) {
                 </React.Fragment>
             )
         }
-        
+
         );
         return (
-         
+
             <ul className="list-unstyled">
                 {comment}
-                <CommentForm/>
+                <CommentForm dishId={dishId} addComment={addComment} />
             </ul>
-          
+
         )
     }
     else {
@@ -73,7 +73,10 @@ const DishDetail = (props) => {
                     <RenderDish dish={props.dish} />
                 </div>
                 <div className="col-12 col-md-5 m-1">
-                    <RenderComments comments={props.comments} />
+                    <RenderComments comments={props.comments}
+                        addComment={props.addComment}   
+                        dishId={props.dish.id}
+                    />
                 </div>
             </div>
         </div>
