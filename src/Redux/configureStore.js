@@ -2,6 +2,9 @@ import {Dishes} from './dishes';
 import {Comments} from './comments';
 import {Leaders} from './leaders';
 import {Promotions} from './promotions';
+import { InitialFeedback } from './forms';
+import { createForms } from 'react-redux-form';
+
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 
 import thunk from 'redux-thunk';
@@ -12,7 +15,10 @@ export const configureStore = () => {
         dishes: Dishes,
         leaders: Leaders,
         promotions: Promotions,
-        comments: Comments
+        comments: Comments,
+        ...createForms({
+            feedback: InitialFeedback
+        })
     }),
     applyMiddleware(thunk, logger)
     );
