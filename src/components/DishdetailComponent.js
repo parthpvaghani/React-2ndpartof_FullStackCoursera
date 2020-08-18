@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrum
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 import { Loading } from './LoadingComponent';
-
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderDish({ dish }) {
 
@@ -12,7 +12,7 @@ function RenderDish({ dish }) {
             <React.Fragment>
 
                 <Card >
-                    <CardImg top src={dish.image} alt={dish.name} />
+                    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
                         <CardText>{dish.description}</CardText>
@@ -26,7 +26,6 @@ function RenderDish({ dish }) {
         return (
             <div></div>
         );
-
 }
 
 function RenderComments({ comments, addComment, dishId }) {
@@ -106,8 +105,5 @@ const DishDetail = (props) => {
             </div>
         );
 }
-
-
-
 
 export default DishDetail;
