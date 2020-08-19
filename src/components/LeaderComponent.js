@@ -1,4 +1,6 @@
 import React from 'react';
+import { baseUrl } from '../shared/baseUrl';
+
 
 function RenderLeader(props) {
     return (
@@ -6,7 +8,7 @@ function RenderLeader(props) {
 
         <div className="row py-3">
             <div className="col-12 col-sm-2 order-sm-first">
-            <img src={props.leader.image} alt="alberto" className=" img-thumbnail d-flex align-self-center" />
+            <img src={baseUrl +  props.leader.image} alt="alberto" className=" img-thumbnail d-flex align-self-center" />
             </div>
 
             <div className="col col-sm">
