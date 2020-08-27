@@ -1,7 +1,14 @@
+//from react
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
+//bootstrap components
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
+
+//Our component
 import RenderLeader from './LeaderComponent';
+
+//Animation
 import { Fade, Stagger } from 'react-animation-components';
 
 

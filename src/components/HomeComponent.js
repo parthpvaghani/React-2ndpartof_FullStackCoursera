@@ -1,12 +1,18 @@
 import React from 'react';
+
 import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle
 } from 'reactstrap';
+
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+
 import { FadeTransform } from 'react-animation-components';
 
+//whenever we use function component this way as a secondary function to return something we accept parameter this way : i think we are destrucring this way
+
+//we can directly catch this parameter which we have passed while rendering this component RenderCard with exact name
 function RenderCard({ item, isLoading, errMess }) {
 
   if (isLoading) {
@@ -40,7 +46,7 @@ function RenderCard({ item, isLoading, errMess }) {
 }
 
 
-
+//we can consider this as our primary functional component bcz we are exporting it and using it in another file.
 function Home(props) {
   return (
     <div className="container">

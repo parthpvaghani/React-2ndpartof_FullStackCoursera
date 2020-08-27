@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
     Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, Modal, ModalHeader, ModalBody,
@@ -10,16 +11,15 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
 
-
+    //we made use of local state of this class component to manage UI state
     constructor(props) {
         super(props);
 
-        this.toggleNav = this.toggleNav.bind(this);
         this.state = {
             isNavOpen: false,
             isModalOpen: false
         };
-
+        this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
     }

@@ -281,6 +281,17 @@
       "message": "dsfdsf",
       "date": "2020-08-19T19:59:09.001Z",
       "id": 2
+    },
+    {
+      "firstname": "parth",
+      "lastname": "vaghani",
+      "telnum": "9537262686",
+      "email": "parthvaghani14@gmail.com",
+      "agree": true,
+      "contactType": "Tel.",
+      "message": "df",
+      "date": "2020-08-19T20:44:48.248Z",
+      "id": 3
     }
   ]
 }

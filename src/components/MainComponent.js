@@ -1,4 +1,12 @@
+//--------------------------import start------------------------//
+
+//through react
 import React, { Component } from 'react';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { actions } from 'react-redux-form'
+
+//Our Components
 import Menu from './MenuComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -6,13 +14,21 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishdetailComponent';
 import About from './AboutComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+
+//CSS
 import '../App.css';
-import { connect } from 'react-redux';
+
+//Redux Actions  -- All fetch implemented within thunk
 import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../Redux/ActionCreators';
-import { actions } from 'react-redux-form'
+
+//Animation
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
+
+//--------------------------import end------------------------//
+
+
+//it accepts  current state and for this components return the object of required properties(defined below by us) of our state 
 const mapStateToProps = state => {
     return {
         dishes: state.dishes,
@@ -22,6 +38,7 @@ const mapStateToProps = state => {
     }
 }
 
+//it gets dispatch as a parameter so we can dispatch required actions(defined by us as a key in obj below in returend obj) whithin this component
 const mapDispatchToProps = dispatch => ({
 
     postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
@@ -33,8 +50,11 @@ const mapDispatchToProps = dispatch => ({
     fetchLeaders: () => dispatch(fetchLeaders())
 });
 
+
+//our Main class component
 class Main extends Component {
 
+    //After Our Main component gets rendered we are calling all fetch redux functions so it can start fetching all info this is possible because of mapDispatchToProps
     componentDidMount() {
         this.props.fetchDishes();
         this.props.fetchComments();
@@ -44,6 +64,7 @@ class Main extends Component {
 
     render() {
 
+        //our initial homepage displayed between header and footer
         const HomePage = () => {
             return (
                 <Home
@@ -60,6 +81,7 @@ class Main extends Component {
             );
         }
 
+        //this is portion is used for displaying clicked dish within /menu/:dish and {match} objects contains url param informatinon
         const DishWithId = ({ match }) => {
             return (
                 <DishDetail dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
@@ -72,9 +94,8 @@ class Main extends Component {
             );
         };
 
-
+        //Actual Rendering of this Component
         return (
-
             <div>
                 <Header />
                 <TransitionGroup>
@@ -97,4 +118,5 @@ class Main extends Component {
 
 }
 
+//Here only connect as a higher order will also work but in this component we have used react-router so we need to wrap all into the withRouter as a overall higher order function.
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

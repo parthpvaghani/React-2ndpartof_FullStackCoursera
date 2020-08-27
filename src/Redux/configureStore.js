@@ -1,7 +1,9 @@
+//reducers
 import {Dishes} from './dishes';
 import {Comments} from './comments';
 import {Leaders} from './leaders';
 import {Promotions} from './promotions';
+
 import { InitialFeedback } from './forms';
 import { createForms } from 'react-redux-form';
 

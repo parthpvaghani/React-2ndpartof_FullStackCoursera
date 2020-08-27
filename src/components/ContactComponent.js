@@ -1,8 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
-import { BreadcrumbItem, Breadcrumb, Row, Label, Col, Button, FormGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
+import { BreadcrumbItem, Breadcrumb, Row, Label, Col, Button, FormGroup } from 'reactstrap';
+
 import { Control, Form, Errors } from 'react-redux-form';
+
 class Contact extends Component {
 
    
